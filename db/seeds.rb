@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# create users
+user1 = User.find_or_create_by!(first_name: 'Ivan', last_name: 'Ivanov', email: 'user1@users.ru')
+user2 = User.find_or_create_by!(first_name: 'Petr', last_name: 'Smirnov', email: 'user2@users.ru', role: :admin)
+
 # create categories
 programming = Category.find_or_create_by!(title: 'Programming')
 alg_and_data = Category.find_or_create_by!(title: 'Data structures and algorithms')
@@ -7,10 +11,10 @@ backend = Category.find_or_create_by!(title: 'Backend')
 frontend = Category.find_or_create_by!(title: 'Frontend')
 
 # create tests
-ruby_test = Test.find_or_create_by!(title: 'Ruby programming language', level: 2, category_id: programming.id)
-alg_test = Test.find_or_create_by!(title: 'Algorithms', level: 3, category_id: alg_and_data.id)
-rails_test = Test.find_or_create_by!(title: 'Rails framework', level: 2, category_id: backend.id)
-front_test = Test.find_or_create_by!(title: 'HTML and CSS', category_id: frontend.id)
+ruby_test = Test.find_or_create_by!(title: 'Ruby programming language', level: 2, category_id: programming.id, user_id: user2.id)
+alg_test = Test.find_or_create_by!(title: 'Algorithms', level: 3, category_id: alg_and_data.id, user_id: user2.id)
+rails_test = Test.find_or_create_by!(title: 'Rails framework', level: 2, category_id: backend.id, user_id: user2.id)
+front_test = Test.find_or_create_by!(title: 'HTML and CSS', category_id: frontend.id, user_id: user2.id)
 
 # create questions and answers
 rtq1 = Question.find_or_create_by!(body: 'What the puts function is responsible for?', test_id: ruby_test.id)
@@ -29,11 +33,7 @@ ftq1 = Question.find_or_create_by!(body: 'What function does the <a> tag do?', t
 Answer.find_or_create_by!(body: 'Creates a link', correct: true, question_id: ftq1.id)
 Answer.find_or_create_by!(body: 'Creates a paragraph', correct: false, question_id: ftq1.id)
 
-# create users
-user1 = User.find_or_create_by!(first_name: 'Ivan', last_name: 'Ivanov')
-user2 = User.find_or_create_by!(first_name: 'Petr', last_name: 'Smirnov')
-
 # create statistics
-Statistic.find_or_create_by!(user_id: user1.id, test_id: ruby_test.id, state: 1)
-Statistic.find_or_create_by!(user_id: user1.id, test_id: rails_test.id, state: 1)
-Statistic.find_or_create_by!(user_id: user1.id, test_id: alg_test.id, state: 1)
+Statistic.find_or_create_by!(user_id: user1.id, test_id: ruby_test.id, passed: true)
+Statistic.find_or_create_by!(user_id: user1.id, test_id: rails_test.id, passed: false)
+Statistic.find_or_create_by!(user_id: user1.id, test_id: alg_test.id, passed: true)

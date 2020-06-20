@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_19_074754) do
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.bigint "question_id", null: false
-    t.boolean "correct", default: false, null: false
+    t.boolean "correct", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_06_19_074754) do
   end
 
   create_table "statistics", force: :cascade do |t|
-    t.integer "state"
+    t.boolean "passed", default: false
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -52,15 +52,19 @@ ActiveRecord::Schema.define(version: 2020_06_19_074754) do
     t.string "title", null: false
     t.integer "level", default: 1
     t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "middle_name"
+    t.string "email", null: false
+    t.integer "role", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -70,4 +74,5 @@ ActiveRecord::Schema.define(version: 2020_06_19_074754) do
   add_foreign_key "statistics", "tests"
   add_foreign_key "statistics", "users"
   add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users"
 end

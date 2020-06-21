@@ -6,10 +6,10 @@ class Test < ApplicationRecord
   has_many :statistics, dependent: :destroy
   has_many :users, through: :statistics
 
-  scope :titles_by_category, lambda { |title|
-    Category.find_by(title: title)
-            .tests
-            .order('title DESC')
-            .pluck(:title)
-  }
+  def self.titles_by_category(title:)
+    joins(:category)
+      .where(categories: { title: title })
+      .order('tests.title DESC')
+      .pluck(:title)
+  end
 end

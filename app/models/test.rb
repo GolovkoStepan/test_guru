@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tests
@@ -12,14 +14,16 @@
 #
 # Indexes
 #
-#  index_tests_on_category_id  (category_id)
-#  index_tests_on_user_id      (user_id)
+#  index_tests_on_category_id      (category_id)
+#  index_tests_on_title_and_level  (title,level) UNIQUE
+#  index_tests_on_user_id          (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (category_id => categories.id)
 #  fk_rails_...  (user_id => users.id)
 #
+
 class Test < ApplicationRecord
   belongs_to :category
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
@@ -27,6 +31,10 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :statistics, dependent: :destroy
   has_many :users, through: :statistics
+
+  validates :title, presence: true
+  validates_numericality_of :level, only_integer: true, greater_than: 0
+  validates_uniqueness_of :title, scope: :level
 
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
@@ -42,7 +50,7 @@ class Test < ApplicationRecord
 
   def self.titles_by_category(title:)
     by_category_title(title)
-      .order('tests.title DESC')
+      .order(title: :desc)
       .pluck(:title)
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: statistics
@@ -18,7 +20,7 @@
 #
 #  fk_rails_...  (test_id => tests.id)
 #  fk_rails_...  (user_id => users.id)
-#
+
 class Statistic < ApplicationRecord
   belongs_to :user
   belongs_to :test

@@ -12,8 +12,9 @@
 #
 # Indexes
 #
-#  index_tests_on_category_id  (category_id)
-#  index_tests_on_user_id      (user_id)
+#  index_tests_on_category_id      (category_id)
+#  index_tests_on_title_and_level  (title,level) UNIQUE
+#  index_tests_on_user_id          (user_id)
 #
 # Foreign Keys
 #

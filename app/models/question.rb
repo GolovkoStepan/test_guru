@@ -23,17 +23,8 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   validates :body, presence: true
-  validate :answers_count, on: :create
 
   def correct_answers
     answers.where(correct: true)
-  end
-
-  private
-
-  def answers_count
-    return if answers.size.in? 1..4
-
-    errors[:base] << 'The number of answers to the question should be in range 1..4'
   end
 end

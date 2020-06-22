@@ -23,6 +23,15 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :body, presence: true
+  validate :min_count, on: :create
 
-  scope :correct, ->(question) { where(question: question, correct: true) }
+  scope :correct, -> { where(correct: true) }
+
+  private
+
+  def min_count
+    return if question.answers.count < 4
+
+    errors[:base] << 'The number of answers to the question should be less than 4'
+  end
 end

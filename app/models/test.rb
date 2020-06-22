@@ -41,7 +41,9 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: 5..) }
 
   scope :by_category_title, lambda { |category_title|
-    joins(:category).where(categories: { title: category_title })
+    joins(:category)
+      .where(categories: { title: category_title })
+      .order(title: :desc)
   }
 
   scope :by_level, lambda { |level|
@@ -50,7 +52,6 @@ class Test < ApplicationRecord
 
   def self.titles_by_category(title:)
     by_category_title(title)
-      .order(title: :desc)
       .pluck(:title)
   end
 end

@@ -11,10 +11,10 @@ backend = Category.find_or_create_by!(title: 'Backend')
 frontend = Category.find_or_create_by!(title: 'Frontend')
 
 # create tests
-ruby_test = Test.find_or_create_by!(title: 'Ruby programming language', level: 2, category: programming, user: user2)
-alg_test = Test.find_or_create_by!(title: 'Algorithms', level: 3, category: alg_and_data, user: user2)
-rails_test = Test.find_or_create_by!(title: 'Rails framework', level: 2, category: backend, user: user2)
-front_test = Test.find_or_create_by!(title: 'HTML and CSS', category: frontend, user: user2)
+ruby_test = Test.find_or_create_by!(title: 'Ruby programming language', level: 2, category: programming, author: user2)
+alg_test = Test.find_or_create_by!(title: 'Algorithms', level: 3, category: alg_and_data, author: user2)
+rails_test = Test.find_or_create_by!(title: 'Rails framework', level: 2, category: backend, author: user2)
+front_test = Test.find_or_create_by!(title: 'HTML and CSS', category: frontend, author: user2)
 
 # create questions and answers
 rtq1 = Question.find_or_create_by!(body: 'What the puts function is responsible for?', test: ruby_test)

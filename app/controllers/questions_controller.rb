@@ -1,4 +1,8 @@
 class QuestionsController < ApplicationController
+  before_action :find_question, only: %i[show destroy]
+
+  rescue_from ActiveRecord::RecordNotFound, with: :find_error_response
+
   def index
     @questions = Test.find(params[:test_id]).questions
 
@@ -20,31 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
-
-    respond_to do |format|
-      format.html do
-        render inline: <<~ERB
-          <div style="border: 4px solid black; padding: 10px; width: 400px; border-radius: 15px;">
-            <p>Question id: <%= @question.id %></p>
-            <p>Question body: <%= @question.body %></p>
-            <p>Answers:</p>
-            <% @question.answers.each do |ans| %>
-              <div style="border: 2px solid black; padding: 10px; width: 300px; margin-bottom: 10px;  border-radius: 7px;">
-                  <p>Answer id: <%= ans.id %></p>
-                  <p>Answer body: <%= ans.body %></p>
-                  <p>Is correct?: <%= ans.correct %></p>
-              </div>
-            <% end %>
-            <div style="display: flex; justify-content: flex-end">
-              <%= link_to 'Destroy question', test_question_path(params[:test_id], params[:id]), method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-          </div>
-        ERB
-      end
-
-      format.json { render json: @question }
-    end
+    render file: 'questions/show'
   end
 
   def new
@@ -83,6 +63,18 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    render plain: params
+    @question.destroy
+
+    redirect_to test_questions_path
+  end
+
+  private
+
+  def find_question
+    @question = Question.find_by!(test_id: params[:test_id], id: params[:id])
+  end
+
+  def find_error_response
+    render plain: 'Record not found'
   end
 end

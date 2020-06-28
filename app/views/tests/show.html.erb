@@ -1,3 +1,5 @@
+<% questions_count = @test.questions.count %>
+
 <h3>Test: <%= @test.title %></h3>
 <p>Category: <%= @test.category.title %></p>
 <p>Level: <%= @test.level %></p>
@@ -6,16 +8,11 @@
   <p><%= link_to 'Delete', test_path(@test), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 </div>
 
-<p>Questions</p>
+
+
+<p>Test has <%= pluralize(questions_count, 'question') %></p>
 <table>
-  <% @test.questions.each do |question| %>
-    <tr>
-      <td>Question: <%= question.body %></td>
-      <td><%= link_to 'Show', question_path(question) %></td>
-      <td><%= link_to 'Edit', edit_question_path(question) %></td>
-      <td><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
+  <%= render @test.questions %>
 </table>
 
 <p><%= link_to 'Create new question', new_test_question_path(@test) %></p>

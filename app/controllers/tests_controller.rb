@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show edit destroy]
+  before_action :find_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
@@ -13,9 +13,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-
-    # TODO: Add current user instead it
-    @test.author = User.first
+    @test.author = current_user
 
     if @test.save
       redirect_to test_path(@test)
@@ -27,8 +25,6 @@ class TestsController < ApplicationController
   def edit; end
 
   def update
-    @test = Test.find(params[:id])
-
     if @test.update(test_params)
       redirect_to test_path(@test)
     else

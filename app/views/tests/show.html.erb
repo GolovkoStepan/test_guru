@@ -1,5 +1,3 @@
-<% questions_count = @test.questions.count %>
-
 <h3>Test: <%= @test.title %></h3>
 <p>Category: <%= @test.category.title %></p>
 <p>Level: <%= @test.level %></p>
@@ -8,9 +6,6 @@
   <p><%= link_to 'Delete', test_path(@test), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 </div>
 
-
-
-<p>Test has <%= pluralize(questions_count, 'question') %></p>
 <table>
   <%= render @test.questions %>
 </table>

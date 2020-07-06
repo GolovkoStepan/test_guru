@@ -50,6 +50,10 @@ class Test < ApplicationRecord
     where(level: level)
   }
 
+  def last_question
+    questions.order(:id).last
+  end
+
   def self.titles_by_category(title:)
     by_category_title(title)
       .pluck(:title)

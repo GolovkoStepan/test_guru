@@ -32,8 +32,3 @@ Answer.find_or_create_by!(body: 'Hibernate', correct: false, question: ratq1)
 ftq1 = Question.find_or_create_by!(body: 'What function does the <a> tag do?', test: front_test)
 Answer.find_or_create_by!(body: 'Creates a link', correct: true, question: ftq1)
 Answer.find_or_create_by!(body: 'Creates a paragraph', correct: false, question: ftq1)
-
-# create statistics
-Statistic.find_or_create_by!(user: user1, test: ruby_test, passed: true)
-Statistic.find_or_create_by!(user: user1, test: rails_test, passed: false)
-Statistic.find_or_create_by!(user: user1, test: alg_test, passed: true)

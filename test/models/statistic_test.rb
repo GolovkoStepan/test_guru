@@ -2,20 +2,24 @@
 #
 # Table name: statistics
 #
-#  id         :bigint           not null, primary key
-#  passed     :boolean          default(FALSE)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  test_id    :bigint           not null
-#  user_id    :bigint           not null
+#  id              :bigint           not null, primary key
+#  complete        :boolean          default(FALSE)
+#  correct_answers :integer          default(0)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  question_id     :bigint           not null
+#  test_id         :bigint           not null
+#  user_id         :bigint           not null
 #
 # Indexes
 #
-#  index_statistics_on_test_id  (test_id)
-#  index_statistics_on_user_id  (user_id)
+#  index_statistics_on_question_id  (question_id)
+#  index_statistics_on_test_id      (test_id)
+#  index_statistics_on_user_id      (user_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (question_id => questions.id)
 #  fk_rails_...  (test_id => tests.id)
 #  fk_rails_...  (user_id => users.id)
 #

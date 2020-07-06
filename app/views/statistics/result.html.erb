@@ -1,0 +1,14 @@
+<% success_rate = @statistic.success_rate %>
+
+<p>Test <%= @statistic.test.title %> passed!</p>
+<p>
+  <% if @statistic.success_rate >= 85 %>
+    Your success rate is <span style="color: green"><%= success_rate %></span>
+    You have successfully passed the test!
+  <% else %>
+    Your success rate is <span style="color: red"><%= success_rate %></span>
+    You failed to pass the test!
+  <% end %>
+</p>
+
+<%= link_to 'Go back to tests list', tests_path %>

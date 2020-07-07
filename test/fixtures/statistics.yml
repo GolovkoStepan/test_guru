@@ -3,11 +3,10 @@
 # Table name: statistics
 #
 #  id              :bigint           not null, primary key
-#  complete        :boolean          default(FALSE)
 #  correct_answers :integer          default(0)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  question_id     :bigint           not null
+#  question_id     :bigint
 #  test_id         :bigint           not null
 #  user_id         :bigint           not null
 #

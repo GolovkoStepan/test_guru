@@ -8,7 +8,7 @@ class StatisticsController < ApplicationController
   def update
     @statistic.accept!(params[:answer_ids])
 
-    if @statistic.complete
+    if @statistic.complete?
       redirect_to result_statistic_path(@statistic)
     else
       render :show

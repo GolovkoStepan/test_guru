@@ -41,9 +41,8 @@ ActiveRecord::Schema.define(version: 2020_06_21_180340) do
   create_table "statistics", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
-    t.bigint "question_id", null: false
+    t.bigint "question_id"
     t.integer "correct_answers", default: 0
-    t.boolean "complete", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_statistics_on_question_id"

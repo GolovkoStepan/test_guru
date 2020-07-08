@@ -54,13 +54,13 @@ class Statistic < ApplicationRecord
   end
 
   def current_question_number
-    test.questions.order(:id).where('id < ?', question_id).count + 1
+    test.questions.order(:id).where('id <= :question_id', question_id: question_id).count
   end
 
   private
 
   def answer_correct?(answer_ids)
-    current_question.correct_answers.ids.sort == answer_ids&.map(&:to_i)&.sort
+    current_question.correct_answers.ids.sort == Array(answer_ids).map(&:to_i).sort
   end
 
   def set_current_question

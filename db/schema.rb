@@ -39,11 +39,13 @@ ActiveRecord::Schema.define(version: 2020_06_21_180340) do
   end
 
   create_table "statistics", force: :cascade do |t|
-    t.boolean "passed", default: false
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
+    t.bigint "question_id"
+    t.integer "correct_answers", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_statistics_on_question_id"
     t.index ["test_id"], name: "index_statistics_on_test_id"
     t.index ["user_id"], name: "index_statistics_on_user_id"
   end
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_06_21_180340) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
+  add_foreign_key "statistics", "questions"
   add_foreign_key "statistics", "tests"
   add_foreign_key "statistics", "users"
   add_foreign_key "tests", "categories"

@@ -5,5 +5,15 @@ Rails.application.routes.draw do
     resources :questions, except: :index, shallow: true do
       resources :answers, except: %i[index show], shallow: true
     end
+
+    member do
+      post :start
+    end
+  end
+
+  resources :statistics, only: %i[show update] do
+    member do
+      get :result
+    end
   end
 end

@@ -25,6 +25,6 @@ class Question < ApplicationRecord
   validates :body, presence: true
 
   def correct_answers
-    answers.where(correct: true)
+    answers.correct
   end
 end

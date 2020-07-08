@@ -1,0 +1,15 @@
+<% test = @statistic.test %>
+
+<p>Pass the <%= test.title %> test</p>
+<p>Question <%= @statistic.current_question_number %> / <%= test.questions.size %></p>
+<p><%= @statistic.current_question.body %></p>
+
+<%= form_with url: statistic_path(@statistic), local: true, method: :put do |f| %>
+  <%= f.collection_check_boxes :answer_ids, @statistic.current_question.answers, :id, :body, include_hidden: false do |cb| %>
+    <p>
+      <%= cb.check_box id: "answer_ids_#{cb.object.id}" %>
+      <%= cb.label %>
+    </p>
+  <% end %>
+  <%= f.submit 'Next' %>
+<% end %>

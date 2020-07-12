@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_url = cookies[:redirect_url_after_sign_in] || root_path
 
       session[:user_id] = @user.id
-      cookies[:redirect_url_after_sign_in] = nil
+      cookies.delete :redirect_url_after_sign_in
 
       redirect_to redirect_url, notice: 'You have successfully signed in'
     else

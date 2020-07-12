@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <%= render partial: 'shared/nav' %>
+    <%= render partial: 'shared/flash_messages' %>
+
     <%= yield %>
 
     <%= render partial: 'shared/footer' %>

@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 # create users
-user1 = User.find_or_create_by!(first_name: 'Ivan', last_name: 'Ivanov', email: 'user1@users.ru')
-user2 = User.find_or_create_by!(first_name: 'Petr', last_name: 'Smirnov', email: 'user2@users.ru', role: :admin)
+user1 = User.find_or_initialize_by(first_name: 'Ivan', last_name: 'Ivanov', email: 'user1@users.ru')
+user1.password = '112233'
+user1.password_confirmation = '112233'
+user1.save!
+
+user2 = User.find_or_initialize_by(first_name: 'Petr', last_name: 'Smirnov', email: 'user2@users.ru', role: :admin)
+user2.password = '112233'
+user2.password_confirmation = '112233'
+user2.save!
 
 # create categories
 programming = Category.find_or_create_by!(title: 'Programming')

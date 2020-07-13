@@ -18,4 +18,8 @@ module ApplicationHelper
       target: '_blank'
     )
   end
+
+  def flash_msg(type:, tag:, css_class:)
+    content_tag tag, flash[type], class: css_class if flash[type]
+  end
 end

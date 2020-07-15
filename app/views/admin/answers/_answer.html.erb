@@ -2,6 +2,6 @@
   <p>Answer id: <%= answer.id %></p>
   <p>Answer body: <%= answer.body %></p>
   <p>Is correct?: <%= answer.correct %></p>
-  <%= link_to 'Edit', edit_answer_path(answer) %>
-  <%= link_to 'Delete', answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_admin_answer_path(answer) %>
+  <%= link_to 'Delete', admin_answer_path(answer), method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

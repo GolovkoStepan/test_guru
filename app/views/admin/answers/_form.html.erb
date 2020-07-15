@@ -1,4 +1,4 @@
-<%= simple_form_for [@question, @answer] do |f| %>
+<%= simple_form_for [:admin, @question, @answer] do |f| %>
   <%= f.input :body %>
   <%= f.input :correct %>
   <%= f.button :submit %>

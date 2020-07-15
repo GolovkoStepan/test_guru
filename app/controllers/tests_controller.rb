@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  skip_before_action :auth_user!, only: :index
+  skip_before_action :authenticate_user!, only: :index
   before_action :find_test, only: %i[show edit update destroy start]
 
   def index

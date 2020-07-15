@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/sign_up', to: 'users#new'
-  get '/sign_in', to: 'sessions#new'
-  delete '/sign_out', to: 'sessions#destroy'
-
-  resources :users, only: :create
-  resources :sessions, only: :create
+  root 'tests#index'
 
   resources :tests do
     resources :questions, except: :index, shallow: true do
@@ -23,6 +18,4 @@ Rails.application.routes.draw do
       get :result
     end
   end
-
-  root 'tests#index'
 end

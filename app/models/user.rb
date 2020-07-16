@@ -26,13 +26,6 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  devise :database_authenticatable,
-         :registerable,
-         :recoverable,
-         :rememberable,
-         :validatable,
-         :confirmable
-
   has_many :statistics, dependent: :destroy
   has_many :tests, through: :statistics
   has_many :my_tests, class_name: 'Test', foreign_key: 'user_id', dependent: :destroy
@@ -41,8 +34,15 @@ class User < ApplicationRecord
 
   enum role: %i[admin regular]
 
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable,
+         :confirmable
+
   def username
-    [first_name, last_name].map(&:capitalize).join(' ') rescue "username"
+    [first_name, last_name].map(&:capitalize).join(' ')
   end
 
   def tests_by_level(level)

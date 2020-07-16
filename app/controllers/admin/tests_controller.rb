@@ -13,7 +13,7 @@ module Admin
     end
 
     def create
-      @test = current_admin.my_tests.new(test_params)
+      @test = current_user.my_tests.new(test_params)
 
       if @test.save
         redirect_to admin_test_path(@test)

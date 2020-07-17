@@ -1,0 +1,6 @@
+<%= simple_form_for [:admin, @test] do |f| %>
+  <%= f.input :title %>
+  <%= f.association :category %>
+  <%= f.input :level %>
+  <%= f.button :submit %>
+<% end %>

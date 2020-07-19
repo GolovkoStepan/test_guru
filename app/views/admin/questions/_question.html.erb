@@ -1,6 +1,6 @@
 <tr>
-  <td>Question: <%= question.body %></td>
-  <td><%= link_to 'Show', admin_question_path(question) %></td>
-  <td><%= link_to 'Edit', edit_admin_question_path(question) %></td>
-  <td><%= link_to 'Delete', admin_question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td> <%= Question.human_attribute_name('body') %> <%= question.body %></td>
+  <td><%= link_to t('links.show'), admin_question_path(question) %></td>
+  <td><%= link_to t('links.edit'), edit_admin_question_path(question) %></td>
+  <td><%= link_to t('links.destroy'), admin_question_path(question), method: :delete, data: { confirm: t('messages.destroy') } %></td>
 </tr>

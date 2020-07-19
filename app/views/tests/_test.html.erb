@@ -1,5 +1,5 @@
 <tr>
-  <td>Test title: <%= test.title %></td>
-  <td>Test has <%= pluralize(test.questions.count, 'question') %></td>
-  <td><%= button_to 'Start', start_test_path(test) %></td>
+  <td><%= Test.human_attribute_name('title') %> <%= test.title %></td>
+  <td><%= t('admin.tests.test.questions_count', count: test.questions.count) %></td>
+  <td><%= button_to t('links.start_test'), start_test_path(test) %></td>
 </tr>

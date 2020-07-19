@@ -1,14 +1,16 @@
 <div style="border: 4px solid black; padding: 10px; width: 400px; border-radius: 15px;">
-  <p>Question id: <%= @question.id %></p>
-  <p>Question body: <%= @question.body %></p>
-  <p>Answers:</p>
-  <p><%= link_to 'Create new answer', new_admin_question_answer_path(@question) %></p>
+  <p><%= Question.human_attribute_name('id') %> <%= @question.id %></p>
+  <p><%= Question.human_attribute_name('body') %> <%= @question.body %></p>
+
+  <p><%= t('.answers') %></p>
+
+  <p><%= link_to t('links.create_answer'), new_admin_question_answer_path(@question) %></p>
 
   <%= render @question.answers %>
 
   <div>
-    <%= link_to 'Edit', edit_admin_question_path(@question) %>
-    <%= link_to 'Delete', admin_question_path(@question), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to 'Back', admin_test_path(@question.test) %>
+    <%= link_to t('links.edit'), edit_admin_question_path(@question) %>
+    <%= link_to t('links.destroy'), admin_question_path(@question), method: :delete, data: { confirm: t('messages.destroy') } %>
+    <%= link_to t('links.back'), admin_test_path(@question.test) %>
   </div>
 </div>

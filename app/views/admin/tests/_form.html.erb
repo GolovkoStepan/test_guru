@@ -1,6 +1,6 @@
 <%= simple_form_for [:admin, @test] do |f| %>
   <%= f.input :title %>
-  <%= f.association :category %>
+  <%= f.association :category, prompt: :translate %>
   <%= f.input :level %>
-  <%= f.button :submit %>
+  <%= f.button :submit, t('links.save') %>
 <% end %>

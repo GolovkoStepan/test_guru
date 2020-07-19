@@ -1,5 +1,5 @@
 <%= simple_form_for [:admin, @question, @answer] do |f| %>
   <%= f.input :body %>
   <%= f.input :correct %>
-  <%= f.button :submit %>
+  <%= f.button :submit, t('links.save') %>
 <% end %>

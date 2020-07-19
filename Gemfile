@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

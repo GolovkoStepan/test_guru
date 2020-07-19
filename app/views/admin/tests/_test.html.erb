@@ -1,7 +1,12 @@
-<tr>
-  <td><%= Test.human_attribute_name('title') %> <%= test.title %></td>
-  <td><%= t('.questions_count', count: test.questions.count) %></td>
-  <td><%= link_to t('links.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('links.edit'), edit_admin_test_path(test) %></td>
-  <td><%= link_to t('links.destroy'), admin_test_path(test), method: :delete, data: { confirm: t('messages.destroy') } %></td>
-</tr>
+<div class="col mb-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= Test.human_attribute_name('title') %> <%= test.title %></h5>
+      <p class="card-text"><%= t('admin.tests.test.questions_count', count: test.questions.count) %></p>
+      <p class="card-text"><%= t('admin.tests.test.level') %> - <%= test.level %></p>
+      <%= link_to t('links.show'), admin_test_path(test) %>
+      <%= link_to t('links.edit'), edit_admin_test_path(test) %>
+      <%= link_to t('links.destroy'), admin_test_path(test), method: :delete, data: { confirm: t('messages.destroy') } %>
+    </div>
+  </div>
+</div>

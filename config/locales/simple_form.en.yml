@@ -3,10 +3,10 @@ en:
     "yes": 'Yes'
     "no": 'No'
     required:
-      text: 'required'
+      text: 'require'
       mark: '*'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: 'Please consider the issues below:'
     prompts:
       defaults:
         category: 'Select category'

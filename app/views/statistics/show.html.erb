@@ -1,15 +1,30 @@
 <% test = @statistic.test %>
+<% progress = @statistic.progress %>
 
-<p><%= t('.pass_test', title: test.title) %></p>
-<p><%= Question.model_name.human %> <%= @statistic.current_question_number %> / <%= test.questions.size %></p>
-<p><%= @statistic.current_question.body %></p>
+<div class="p-4"></div>
 
-<%= form_with url: statistic_path(@statistic), local: true, method: :put do |f| %>
-  <%= f.collection_check_boxes :answer_ids, @statistic.current_question.answers, :id, :body, include_hidden: false do |cb| %>
-    <p>
-      <%= cb.check_box id: "answer_ids_#{cb.object.id}" %>
-      <%= cb.label %>
-    </p>
-  <% end %>
-  <%= f.submit t('links.next_question') %>
-<% end %>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <h3 class="text-center"><%= t('.pass_test', title: test.title) %></h3>
+
+    <div class="p-3"></div>
+
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: <%= progress %>%;" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"><%= progress %>%</div>
+    </div>
+
+    <div class="p-3"></div>
+
+    <p class="text"><%= @statistic.current_question.body %></p>
+
+    <%= form_with url: statistic_path(@statistic), local: true, method: :put do |f| %>
+      <%= f.collection_check_boxes :answer_ids, @statistic.current_question.answers, :id, :body, include_hidden: false do |cb| %>
+        <div class="form-group form-check pl-lg-4">
+          <%= cb.check_box id: "answer_ids_#{cb.object.id}", class: 'form-check-input' %>
+          <%= cb.label class: 'form-check-label' %>
+        </div>
+      <% end %>
+      <%= f.submit t('links.next_question'), class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

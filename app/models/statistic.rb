@@ -57,6 +57,10 @@ class Statistic < ApplicationRecord
     test.questions.order(:id).where('id <= :question_id', question_id: question_id).count
   end
 
+  def progress
+    current_question_number == 1 ? 0 : 100 / (test.questions.count / (current_question_number - 1))
+  end
+
   private
 
   def answer_correct?(answer_ids)

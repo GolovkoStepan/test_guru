@@ -1,7 +1,7 @@
 <% test = @statistic.test %>
 
-<p>Pass the <%= test.title %> test</p>
-<p>Question <%= @statistic.current_question_number %> / <%= test.questions.size %></p>
+<p><%= t('.pass_test', title: test.title) %></p>
+<p><%= Question.model_name.human %> <%= @statistic.current_question_number %> / <%= test.questions.size %></p>
 <p><%= @statistic.current_question.body %></p>
 
 <%= form_with url: statistic_path(@statistic), local: true, method: :put do |f| %>
@@ -11,5 +11,5 @@
       <%= cb.label %>
     </p>
   <% end %>
-  <%= f.submit 'Next' %>
+  <%= f.submit t('links.next_question') %>
 <% end %>

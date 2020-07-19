@@ -4,9 +4,7 @@ module Users
   class SessionsController < Devise::SessionsController
     def create
       super do
-        usr_msg = "Hi, #{current_user.username}! Tests were waiting..."
-        adm_msg = "Hi, #{current_user.username}! Welcome back to your nice admin panel!"
-        flash[:notice] = current_user.admin? ? adm_msg : usr_msg
+        flash[:notice] = t('messages.greetings', username: current_user.username )
       end
     end
   end

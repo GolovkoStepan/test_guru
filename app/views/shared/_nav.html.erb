@@ -1,9 +1,9 @@
 <%= link_to 'Test Guru', :root %>
 
 <% if user_signed_in? %>
-  Welcome, <%= current_user.username %> Guru
-  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <%= t('.greetings', username: current_user.username ) %>
+  <%= link_to t('links.sign_out'), destroy_user_session_path, method: :delete %>
 <% else %>
-  <%= link_to 'Sign in', new_user_session_path %>
-  <%= link_to 'Sign up', new_user_registration_path %>
+  <%= link_to t('links.sign_in'), new_user_session_path %>
+  <%= link_to t('links.sign_up'), new_user_registration_path %>
 <% end %>

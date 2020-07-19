@@ -1,14 +1,14 @@
 <% success_rate = @statistic.success_rate %>
 
-<p>Test <%= @statistic.test.title %> passed!</p>
+<p><%= t('.test_passed', title: @statistic.test.title) %></p>
 <p>
   <% if @statistic.success? %>
-    Your success rate is <span class="text-color success"><%= success_rate %></span>
-    You have successfully passed the test!
+    <%= t('.rate') %> <span class="text-color success"><%= success_rate %></span>
+    <%= t('.success') %>
   <% else %>
-    Your success rate is <span class="text-color fail"><%= success_rate %></span>
-    You failed to pass the test!
+    <%= t('.rate') %> <span class="text-color fail"><%= success_rate %></span>
+    <%= t('.fail') %>
   <% end %>
 </p>
 
-<%= link_to 'Go back to tests list', tests_path %>
+<%= link_to t('links.tests_list'), tests_path %>

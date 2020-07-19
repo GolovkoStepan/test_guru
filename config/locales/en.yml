@@ -1,33 +1,92 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  project:
+    name: 'Test Guru'
+    author: 'Stepan Golovko'
+
+  shared:
+    nav:
+      greetings: 'Welcome, %{username} Guru!'
+
+  statistics:
+    show:
+      pass_test: 'Pass the %{title} test'
+    result:
+      test_passed: 'Test %{title} passed!'
+      rate: 'Your success rate is '
+      success: 'You have successfully passed the test!'
+      fail: 'You failed to pass the test!'
+  admin:
+    answers:
+      edit:
+        header: 'Edit answer'
+      new:
+        header: 'Create new answer'
+    questions:
+      edit:
+        header: 'Edit question'
+      new:
+        header: 'Create new question'
+      show:
+        answers: 'Answers'
+    tests:
+      index:
+        test_list: 'Test list'
+      edit:
+        header: 'Edit test'
+      new:
+        header: 'Create new test'
+      test:
+        questions_count:
+          one: 'Test has %{count} question'
+          few: 'Test has %{count} questions'
+          many: 'Test has %{count} questions'
+          other: 'Test has %{count} questions'
+
+  messages:
+    destroy: 'Are you sure?'
+    greetings: 'Hello, %{username}!'
+    admin_only: 'Access to this page is restricted to administrators'
+
+  links:
+    show: 'Show'
+    new: 'New'
+    save: 'Save'
+    create: 'Create'
+    edit: 'Edit'
+    update: 'Update'
+    destroy: 'Delete'
+    back: 'Back'
+    create_answer: 'Create new answer'
+    create_question: 'Create new question'
+    create_test: 'Create new test'
+    start_test: 'Start Test'
+    next_question: 'Next question'
+    tests_list: 'Tests list'
+    sign_in: 'Sing In'
+    sign_up: 'Sign Up'
+    sign_out: 'Sign Out'
+
+  activerecord:
+    models:
+      answer: 'Answer'
+      question: 'Question'
+      test: 'Test'
+      user: 'User'
+    attributes:
+      answer:
+        id: 'ID'
+        body: 'Answer text'
+        correct: 'Correct'
+      question:
+        id: 'ID'
+        body: 'Question text'
+      test:
+        id: 'ID'
+        title: 'Title'
+        level: 'Level'
+        category: 'Category'
+      user:
+        first_name: 'Name'
+        last_name: 'Surname'
+        middle_name: 'Patronymic'
+        email: 'Email'

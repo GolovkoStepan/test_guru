@@ -1,5 +1,13 @@
-<p><%= t('.header') %></p>
+<div class="p-2"></div>
 
-<%= render partial: 'form' %>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <h3 class="mb-3"><%= t('.header') %></h3>
 
-<%= link_to t('links.back'), :back %>
+    <%= render partial: 'form' %>
+
+    <div class="p-2"></div>
+
+    <%= link_to t('links.back'), :back %>
+  </div>
+</div>

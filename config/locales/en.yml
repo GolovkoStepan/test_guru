@@ -15,6 +15,7 @@ en:
       rate: 'Your success rate is '
       success: 'You have successfully passed the test!'
       fail: 'You failed to pass the test!'
+
   admin:
     answers:
       edit:
@@ -36,6 +37,7 @@ en:
       new:
         header: 'Create new test'
       test:
+        level: 'Level of difficulty'
         questions_count:
           one: 'Test has %{count} question'
           few: 'Test has %{count} questions'
@@ -65,6 +67,8 @@ en:
     sign_in: 'Sing In'
     sign_up: 'Sign Up'
     sign_out: 'Sign Out'
+    user_settings: 'Settings'
+    admin_panel: 'Administration panel'
 
   activerecord:
     models:

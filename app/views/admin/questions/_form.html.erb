@@ -1,4 +1,7 @@
 <%= simple_form_for [:admin, @test, @question] do |f| %>
-  <%= f.input :body, type: :text %>
-  <%= f.button :submit, t('links.save') %>
+  <div class="form-group">
+    <%= f.input :body, type: :text, class: 'form-control' %>
+  </div>
+
+  <%= f.button :submit, t('links.save'), class: 'btn btn-primary btn-block' %>
 <% end %>

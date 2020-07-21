@@ -1,7 +1,17 @@
-<div>
-  <%= flash_msg type: :alert, tag: :p, css_class: 'flash alert' %>
-</div>
+<% if notice %>
+  <div class="alert alert-info alert-dismissible fade show m-0" role="alert">
+    <%= notice %>
+    <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+      <span aria-hidden="true">&times</span>
+    </button>
+  </div>
+<% end %>
 
-<div>
-  <%= flash_msg type: :notice, tag: :p, css_class: 'flash' %>
-</div>
+<% if alert %>
+  <div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
+    <%= alert %>
+    <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+      <span aria-hidden="true">&times</span>
+    </button>
+  </div>
+<% end %>

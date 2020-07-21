@@ -1,14 +1,22 @@
 <% success_rate = @statistic.success_rate %>
 
-<p><%= t('.test_passed', title: @statistic.test.title) %></p>
-<p>
-  <% if @statistic.success? %>
-    <%= t('.rate') %> <span class="text-color success"><%= success_rate %></span>
-    <%= t('.success') %>
-  <% else %>
-    <%= t('.rate') %> <span class="text-color fail"><%= success_rate %></span>
-    <%= t('.fail') %>
-  <% end %>
-</p>
+<div class="p-4"></div>
 
-<%= link_to t('links.tests_list'), tests_path %>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <h2><%= t('.test_passed', title: @statistic.test.title) %></h2>
+
+    <div class="p-2"></div>
+
+    <% if @statistic.success? %>
+      <p><%= t('.rate') %> <span class="text-success"><%= success_rate %></span></p>
+      <p><%= t('.success') %></p>
+    <% else %>
+      <p><%= t('.rate') %> <span class="text-danger"><%= success_rate %></span></p>
+      <p><%= t('.fail') %></p>
+    <% end %>
+
+
+    <%= link_to t('links.tests_list'), tests_path %>
+  </div>
+</div>

@@ -15,6 +15,7 @@ ru:
       rate: 'Ваш результат '
       success: 'Вы успешно прошли тест!'
       fail: 'Вы не смогли пройти тест!'
+
   admin:
     answers:
       edit:
@@ -36,6 +37,7 @@ ru:
       new:
         header: 'Создать новый тест'
       test:
+        level: 'Уровень сложности'
         questions_count:
           one: 'Тест имеет %{count} вопрос'
           few: 'Тест имеет %{count} вопроса'
@@ -65,6 +67,8 @@ ru:
     sign_in: 'Войти'
     sign_up: 'Зарегистрироваться'
     sign_out: 'Выйти'
+    user_settings: 'Настройки'
+    admin_panel: 'Панель администратора'
 
   activerecord:
     models:

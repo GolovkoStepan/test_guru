@@ -26,5 +26,6 @@
       <% end %>
       <%= f.submit t('links.next_question'), class: 'btn btn-primary btn-block' %>
     <% end %>
+    <%= button_to t('links.create_gist'), create_gist_statistic_path(@statistic), method: :post, class: 'btn btn-warning btn-block mt-2' %>
   </div>
 </div>

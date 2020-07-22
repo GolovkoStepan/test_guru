@@ -6,22 +6,24 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'devise'
+gem 'devise-bootstrap-views', '~> 1.0'
+gem 'devise-i18n'
 gem 'jbuilder', '~> 2.7'
+gem 'octokit', '~> 4.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
+gem 'rails-i18n'
 gem 'sass-rails', '>= 6'
+gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
-gem 'simple_form'
-gem 'devise'
-gem 'rails-i18n'
-gem 'devise-i18n'
-gem 'devise-bootstrap-views', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'letter_opener'
+  gem 'dotenv-rails'
 end
 
 group :development do

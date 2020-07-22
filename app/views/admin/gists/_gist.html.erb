@@ -1,0 +1,11 @@
+<div class="row mb-3">
+  <div class="col-lg-6 offset-lg-3">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to gist.short_question_body, admin_question_path(gist.question) %></h5>
+        <p><%= link_to nil, gist.url, target: '_blank' %></p>
+        <%= link_to t('links.destroy'), admin_gist_path(gist), method: :delete, data: { confirm: t('messages.destroy') }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

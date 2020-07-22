@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         resources :answers, except: %i[index show], shallow: true
       end
     end
+
+    resources :gists, only: %i[index destroy]
   end
 
   resources :tests, only: :index do
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
   resources :statistics, only: %i[show update] do
     member do
       get :result
+      post :create_gist
     end
   end
 end

@@ -2,6 +2,7 @@ en:
   project:
     name: 'Test Guru'
     author: 'Stepan Golovko'
+    school: 'Study project at Thinknetica online school'
 
   shared:
     nav:
@@ -50,6 +51,8 @@ en:
     admin_only: 'Access to this page is restricted to administrators'
     gist_create_success: 'Gist created. Url: %{url}'
     gist_create_fail: 'Failed to create gist'
+    gist_remove_success: 'Gist removed successfully'
+    gist_remove_fail: 'Error while removing gist'
 
   links:
     show: 'Show'

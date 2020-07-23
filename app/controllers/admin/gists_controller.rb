@@ -9,9 +9,13 @@ module Admin
     end
 
     def destroy
-      github_service.remove_gist gist_id: @gist.gist_id
+      result = github_service.remove_gist gist_id: @gist.gist_id
 
-      redirect_to admin_gists_path
+      if result.success
+        redirect_to admin_gists_path, notice: t('messages.gist_remove_success')
+      else
+        redirect_to admin_gists_path, alert: t('messages.gist_remove_fail')
+      end
     end
 
     private

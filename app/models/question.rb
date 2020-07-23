@@ -21,10 +21,15 @@
 class Question < ApplicationRecord
   belongs_to :test
   has_many :answers, dependent: :destroy
+  has_many :gists, dependent: :destroy
 
   validates :body, presence: true
 
   def correct_answers
     answers.correct
+  end
+
+  def short_body
+    body.truncate(25)
   end
 end

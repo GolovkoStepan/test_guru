@@ -2,6 +2,7 @@ ru:
   project:
     name: 'Тест Гуру'
     author: 'Степан Головко'
+    school: 'Учебный проект в онлайн-школе Thinknetica'
 
   shared:
     nav:
@@ -50,6 +51,8 @@ ru:
     admin_only: 'Доступ к этой странице разрешен только администраторам'
     gist_create_success: 'Gist создан. Ссылка: %{url}'
     gist_create_fail: 'Создать Gist не удалось'
+    gist_remove_success: 'Gist успешно удален'
+    gist_remove_fail: 'При удалении gist произошла ошибка'
 
   links:
     show: 'Открыть'

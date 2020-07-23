@@ -1,27 +1,44 @@
 class GithubService
   delegate :logger, to: Rails
 
+  class GithubResponse
+    attr_reader :success, :url
+
+    def initialize(success: false, url: nil)
+      @success = success
+      @url = url
+    end
+  end
+
   def create_question_gist(user:, question:)
     with_any_errors do
       logger.info 'Start to create gist'
       response = client.create_gist(question_gist_params(user, question))
       gist_url = response.html_url
       gist_id  = response.id
-      logger.info "Gist created. URL: #{gist_url}, ID: #{gist_id}"
 
-      save_gist_info(user, question, gist_url, gist_id)
-
-      response
+      if gist_url && gist_id
+        logger.info "Gist created. URL: #{gist_url}, ID: #{gist_id}"
+        save_gist_info(user, question, gist_url, gist_id)
+        GithubResponse.new success: true, url: gist_url
+      else
+        logger.info 'Error while creating gist'
+        GithubResponse.new
+      end
     end
   end
 
   def remove_gist(gist_id:)
     with_any_errors do
       logger.info "Remove gist from GitHub with id: #{gist_id}"
-      client.delete_gist(gist_id)
-      logger.info 'Gist removed successfully'
-
-      remove_gist_info(gist_id)
+      if client.delete_gist(gist_id)
+        logger.info 'Gist removed successfully'
+        remove_gist_info(gist_id)
+        GithubResponse.new success: true
+      else
+        logger.info 'Error while removing gist'
+        GithubResponse.new
+      end
     end
   end
 
@@ -72,6 +89,6 @@ class GithubService
   rescue StandardError => e
     logger.info "Error while execution: #{e.class}"
     logger.info "Error message: #{e.message}"
-    nil
+    GithubResponse.new
   end
 end

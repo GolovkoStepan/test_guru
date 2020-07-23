@@ -21,8 +21,8 @@ class StatisticsController < ApplicationController
       question: @statistic.current_question
     )
 
-    if result
-      redirect_to statistic_path(@statistic), notice: t('messages.gist_create_success', url: result.html_url)
+    if result.success
+      redirect_to statistic_path(@statistic), notice: t('messages.gist_create_success', url: result.url)
     else
       redirect_to statistic_path(@statistic), alert: t('messages.gist_create_fail')
     end
@@ -33,7 +33,7 @@ class StatisticsController < ApplicationController
   def find_statistic
     @statistic = Statistic.find(params[:id])
   end
-  
+
   def github_client
     @github_client ||= GithubService.new
   end

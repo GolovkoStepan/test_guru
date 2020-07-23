@@ -24,7 +24,9 @@ class Gist < ApplicationRecord
   belongs_to :user
   belongs_to :question
 
-  def short_question_body
-    question.body.first(25) + '...'
+  validates_presence_of :url
+
+  def hash_from_url
+    url.present? ? URI(url).path[1..] : nil
   end
 end

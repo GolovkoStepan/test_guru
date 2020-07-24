@@ -2,6 +2,7 @@ en:
   project:
     name: 'Test Guru'
     author: 'Stepan Golovko'
+    school: 'Study project at Thinknetica online school'
 
   shared:
     nav:
@@ -48,6 +49,10 @@ en:
     destroy: 'Are you sure?'
     greetings: 'Hello, %{username}!'
     admin_only: 'Access to this page is restricted to administrators'
+    gist_create_success: 'Gist created. Url: %{url}'
+    gist_create_fail: 'Failed to create gist'
+    gist_remove_success: 'Gist removed successfully'
+    gist_remove_fail: 'Error while removing gist'
 
   links:
     show: 'Show'
@@ -69,6 +74,9 @@ en:
     sign_out: 'Sign Out'
     user_settings: 'Settings'
     admin_panel: 'Administration panel'
+    tests_index: 'Tests'
+    gists_index: 'Gists'
+    create_gist: 'The question is not clear? Send us a message'
 
   activerecord:
     models:

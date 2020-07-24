@@ -13,13 +13,9 @@ module ApplicationHelper
 
   def school_link
     link_to(
-      'Учебный проект в онлайн-школе Thinknetica',
+      t('project.school'),
       'https://thinknetica.com',
       target: '_blank'
     )
-  end
-
-  def flash_msg(type:, tag:, css_class:)
-    content_tag tag, flash[type], class: css_class if flash[type]
   end
 end

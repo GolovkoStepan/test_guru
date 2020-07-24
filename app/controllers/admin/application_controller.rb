@@ -2,6 +2,8 @@ module Admin
   class ApplicationController < ::ApplicationController
     before_action :check_admin_role
 
+    layout 'admin_layout'
+
     private
 
     def check_admin_role

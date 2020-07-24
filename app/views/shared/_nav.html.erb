@@ -14,22 +14,32 @@
 
         <% if current_user.admin? %>
           <li class="nav-item">
-            <%= link_to t('links.admin_panel'), admin_tests_path, class: 'nav-link' %>
+            <%= link_to admin_tests_path, class: 'nav-link' do %>
+              <i class="fas fa-user-lock"></i>
+            <% end %>
           </li>
         <% end %>
 
         <li class="nav-item">
-          <%= link_to t('links.user_settings'), edit_user_registration_path, class: 'nav-link' %>
+          <%= link_to edit_user_registration_path, class: 'nav-link' do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to t('links.sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+            <i class="fas fa-sign-out-alt"></i>
+          <% end %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to t('links.sign_in'), new_user_session_path, class: 'nav-link' %>
+          <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <i class="fas fa-sign-in-alt"></i>
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to t('links.sign_up'), new_user_registration_path, class: 'nav-link' %>
+          <%= link_to new_user_registration_path, class: 'nav-link' do %>
+            <i class="fas fa-user-plus"></i>
+          <% end %>
         </li>
       <% end %>
     </ul>

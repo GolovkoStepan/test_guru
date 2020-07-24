@@ -24,7 +24,7 @@
 
       <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+        <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', id: 'password' %>
 
         <% if @minimum_password_length %>
           <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
@@ -33,7 +33,9 @@
 
       <div class="form-group">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
+        <i class="fas fa-check-circle text-success" style="display: none;" id="pass-icon-success"></i>
+        <i class="fas fa-times-circle text-danger" style="display: none;" id="pass-icon-danger"></i>
+        <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', id: 'password-confirm' %>
       </div>
 
       <div class="form-group">

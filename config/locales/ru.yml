@@ -4,6 +4,10 @@ ru:
     author: 'Степан Головко'
     school: 'Учебный проект в онлайн-школе Thinknetica'
 
+  search:
+    sort: 'Сортировка'
+    input_placeholder: 'Начните вводить...'
+
   shared:
     nav:
       greetings: 'Гуру %{username}, добро пожаловать!'

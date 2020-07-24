@@ -1,5 +1,16 @@
 <div class="p-4"></div>
 
-<div class="row row-cols-1 row-cols-md-2">
-  <%= render @tests %>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2" id="test_cards">
+    <form class="form-inline">
+      <button type="button" class="btn btn-outline-primary mr-3" id="btnSort"><%= t('search.sort') %></button>
+      <input class="form-control mr-sm-2" type="search" placeholder="<%= t('search.input_placeholder') %>" aria-label="Search" id="search">
+    </form>
+
+    <div class="p-4"></div>
+
+    <div id="test_cards">
+      <%= render @tests %>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,8 @@
 import 'bootstrap'
+import "@fortawesome/fontawesome-free/js/all"
+import './tests_search'
+import './reg_password_validation'
+
 import '../stylesheets/application.scss'
 
 require("@rails/ujs").start()

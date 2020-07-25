@@ -4,6 +4,10 @@ en:
     author: 'Stepan Golovko'
     school: 'Study project at Thinknetica online school'
 
+  search:
+    sort: 'Sort'
+    input_placeholder: 'Start to type...'
+
   shared:
     nav:
       greetings: 'Welcome, %{username} Guru!'

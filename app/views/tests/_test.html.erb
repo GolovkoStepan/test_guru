@@ -1,10 +1,9 @@
-<div class="col mb-4">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title"><%= Test.human_attribute_name('title') %> <%= test.title %></h5>
-      <p class="card-text"><%= t('admin.tests.test.questions_count', count: test.questions.count) %></p>
-      <p class="card-text"><%= t('admin.tests.test.level') %> <span class="badge badge-primary"><%= test.level %></span></p>
-      <%= button_to t('links.start_test'), start_test_path(test), class: 'btn btn-outline-primary btn-block' %>
-    </div>
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= test.title %></h5>
+    <p class="card-text"><%= t('admin.tests.test.questions_count', count: test.questions.count) %></p>
+    <p class="card-text"><%= t('admin.tests.test.level') %> <span class="badge badge-primary"><%= test.level %></span></p>
+    <%= button_to t('links.start_test'), start_test_path(test), class: 'btn btn-outline-primary btn-block' %>
   </div>
 </div>
+

@@ -5,7 +5,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-Dotenv::Railtie.load
+Dotenv::Railtie.load unless Rails.env.production?
 
 module TestGuru
   class Application < Rails::Application

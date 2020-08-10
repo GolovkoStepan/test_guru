@@ -8,6 +8,12 @@ ru:
     sort: 'Сортировка'
     input_placeholder: 'Начните вводить...'
 
+  feedback:
+    title: 'Обратная связь'
+    label: 'Введите ваше сообщение:'
+    send: 'Отправить'
+    cancel: 'Отмена'
+
   shared:
     nav:
       greetings: 'Гуру %{username}, добро пожаловать!'
@@ -57,6 +63,7 @@ ru:
     gist_create_fail: 'Создать Gist не удалось'
     gist_remove_success: 'Gist успешно удален'
     gist_remove_fail: 'При удалении gist произошла ошибка'
+    feedback_sent: 'Ваше сообщение успешно отправлено'
 
   links:
     show: 'Открыть'

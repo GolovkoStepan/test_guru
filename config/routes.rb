@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       resources :questions, except: :index, shallow: true do
         resources :answers, except: %i[index show], shallow: true
       end
+
+      member do
+        patch :update_inline
+      end
     end
 
     resources :gists, only: %i[index destroy]

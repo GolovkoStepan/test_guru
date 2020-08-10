@@ -2,6 +2,7 @@ import 'bootstrap'
 import "@fortawesome/fontawesome-free/js/all"
 import './tests_search'
 import './reg_password_validation'
+import './form_inline'
 
 import '../stylesheets/application.scss'
 

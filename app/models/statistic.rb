@@ -58,7 +58,7 @@ class Statistic < ApplicationRecord
   end
 
   def progress
-    current_question_number == 1 ? 0 : 100 / (test.questions.count / (current_question_number - 1))
+    current_question_number == 1 ? 0 : (100 / (test.questions.count / (current_question_number - 1).to_f)).round
   end
 
   private

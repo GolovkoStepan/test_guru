@@ -1,7 +1,11 @@
 class FeedbacksController < ApplicationController
   def create
-    FeedbackMailer.send_user_feedback(admin.email, current_user, message).deliver
-    redirect_to :root, notice: t('messages.feedback_sent')
+    if admin
+      FeedbackMailer.send_user_feedback(admin.email, current_user, message).deliver
+      redirect_to :root, notice: t('messages.feedback_sent')
+    else
+      redirect_to :root, notice: t('messages.feedback_sent_fail')
+    end
   end
 
   private

@@ -64,6 +64,7 @@ ru:
     gist_remove_success: 'Gist успешно удален'
     gist_remove_fail: 'При удалении gist произошла ошибка'
     feedback_sent: 'Ваше сообщение успешно отправлено'
+    feedback_sent_fail: 'Сообщение отправить не удалось'
 
   links:
     show: 'Открыть'

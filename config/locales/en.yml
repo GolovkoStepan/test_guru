@@ -64,6 +64,7 @@ en:
     gist_remove_success: 'Gist removed successfully'
     gist_remove_fail: 'Error while removing gist'
     feedback_sent: 'Your message has been successfully sent'
+    feedback_sent_fail: 'Failed to send message'
 
   links:
     show: 'Show'

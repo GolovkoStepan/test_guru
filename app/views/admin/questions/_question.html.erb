@@ -1,0 +1,12 @@
+<div class="row mb-3">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title"><%= Question.human_attribute_name('body') %>: <%= question.body %></h5>
+        <%= link_to t('links.show'), admin_question_path(question) %>
+        <%= link_to t('links.edit'), edit_admin_question_path(question) %>
+        <%= link_to t('links.destroy'), admin_question_path(question), method: :delete, data: { confirm: t('messages.destroy') } %>
+      </div>
+    </div>
+  </div>
+</div>

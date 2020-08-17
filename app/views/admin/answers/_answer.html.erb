@@ -1,0 +1,12 @@
+<div class="row mb-3">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title"><%= Answer.human_attribute_name('body') %>: <%= answer.body %></h5>
+        <p><%= Answer.human_attribute_name('correct') %> <%= answer.correct %></p>
+        <%= link_to t('links.edit'), edit_admin_answer_path(answer) %>
+        <%= link_to t('links.destroy'), admin_answer_path(answer), method: :delete, data: { confirm: t('messages.destroy') } %>
+      </div>
+    </div>
+  </div>
+</div>

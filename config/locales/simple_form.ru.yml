@@ -1,0 +1,12 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'необходимо'
+      mark: '*'
+    error_notification:
+      default_message: 'Пожалуйста, рассмотрите проблемы ниже:'
+    prompts:
+      defaults:
+        category: 'Выберите категорию'

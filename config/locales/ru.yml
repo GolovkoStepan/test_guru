@@ -1,0 +1,116 @@
+ru:
+  project:
+    name: 'Тест Гуру'
+    author: 'Степан Головко'
+    school: 'Учебный проект в онлайн-школе Thinknetica'
+
+  search:
+    sort: 'Сортировка'
+    input_placeholder: 'Начните вводить...'
+
+  feedback:
+    title: 'Обратная связь'
+    label: 'Введите ваше сообщение:'
+    send: 'Отправить'
+    cancel: 'Отмена'
+
+  shared:
+    nav:
+      greetings: 'Гуру %{username}, добро пожаловать!'
+
+  statistics:
+    show:
+      pass_test: 'Вы проходите тест %{title}'
+    result:
+      test_passed: 'Тест %{title} пройден!'
+      rate: 'Ваш результат '
+      success: 'Вы успешно прошли тест!'
+      fail: 'Вы не смогли пройти тест!'
+
+  admin:
+    answers:
+      edit:
+        header: 'Изменить ответ'
+      new:
+        header: 'Создать новый ответ'
+    questions:
+      edit:
+        header: 'Изменить вопрос'
+      new:
+        header: 'Создать новый вопрос'
+      show:
+        answers: 'Ответы'
+    tests:
+      index:
+        test_list: 'Список тестов'
+      edit:
+        header: 'Изменить тест'
+      new:
+        header: 'Создать новый тест'
+      test:
+        level: 'Уровень сложности'
+        questions_count:
+          one: 'Тест имеет %{count} вопрос'
+          few: 'Тест имеет %{count} вопроса'
+          many: 'Тест имеет %{count} вопросов'
+          other: 'Тест имеет %{count} вопросов'
+
+  messages:
+    destroy: 'Вы уверены?'
+    greetings: 'Привет, %{username}!'
+    admin_only: 'Доступ к этой странице разрешен только администраторам'
+    gist_create_success: 'Gist создан. Ссылка: %{url}'
+    gist_create_fail: 'Создать Gist не удалось'
+    gist_remove_success: 'Gist успешно удален'
+    gist_remove_fail: 'При удалении gist произошла ошибка'
+    feedback_sent: 'Ваше сообщение успешно отправлено'
+    feedback_sent_fail: 'Сообщение отправить не удалось'
+
+  links:
+    show: 'Открыть'
+    new: 'Новый'
+    save: 'Сохранить'
+    create: 'Создать'
+    edit: 'Изменить'
+    update: 'Обновить'
+    destroy: 'Удалить'
+    back: 'Назад'
+    create_answer: 'Создать новый ответ'
+    create_question: 'Создать новый вопрос'
+    create_test: 'Создать новый тест'
+    start_test: 'Начать тест'
+    next_question: 'Следующий вопрос'
+    tests_list: 'Список тестов'
+    sign_in: 'Войти'
+    sign_up: 'Зарегистрироваться'
+    sign_out: 'Выйти'
+    user_settings: 'Настройки'
+    admin_panel: 'Панель администратора'
+    tests_index: 'Тесты'
+    gists_index: 'Gists'
+    create_gist: 'Вопрос не понятен? Отправьте нам сообщение!'
+
+  activerecord:
+    models:
+      answer: 'Ответ'
+      question: 'Вопрос'
+      test: 'Тест'
+      user: 'Пользователь'
+    attributes:
+      answer:
+        id: 'ID'
+        body: 'Текст ответа'
+        correct: 'Верный ответ'
+      question:
+        id: 'ID'
+        body: 'Текст вопроса'
+      test:
+        id: 'ID'
+        title: 'Название'
+        level: 'Уровень'
+        category: 'Категория'
+      user:
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        middle_name: 'Отчество'
+        email: 'Электронная почта'

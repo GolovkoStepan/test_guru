@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to t('project.name'), :root, class: 'navbar-brand' %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= content_tag :span, t('.greetings', username: current_user.username ), class: 'navbar-text' %>
+        </li>
+
+        <li class="nav-item ml-lg-4">
+          <%= link_to nil, class: 'nav-link', data: { toggle: 'modal', target: '#feedbackModal' } do %>
+            <i class="far fa-comment-alt"></i>
+          <% end %>
+        </li>
+
+        <% if current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to admin_tests_path, class: 'nav-link' do %>
+              <i class="fas fa-user-lock"></i>
+            <% end %>
+          </li>
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to edit_user_registration_path, class: 'nav-link' do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+            <i class="fas fa-sign-out-alt"></i>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: 'nav-link' do %>
+            <i class="fas fa-sign-in-alt"></i>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_registration_path, class: 'nav-link' do %>
+            <i class="fas fa-user-plus"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

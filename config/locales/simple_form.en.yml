@@ -1,0 +1,12 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'require'
+      mark: '*'
+    error_notification:
+      default_message: 'Please consider the issues below:'
+    prompts:
+      defaults:
+        category: 'Select category'

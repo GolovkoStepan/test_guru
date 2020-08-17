@@ -1,0 +1,13 @@
+<div class="col mb-4">
+  <div class="card">
+    <div class="card-body">
+      <%= content_tag :h5, test.title, class: 'card-title', data: { test_id: test.id }  %>
+      <%= render 'inline_form', test: @test == test ? @test : test %>
+      <p class="card-text"><%= t('admin.tests.test.questions_count', count: test.questions.count) %></p>
+      <p class="card-text"><%= t('admin.tests.test.level') %> - <%= test.level %></p>
+      <%= link_to t('links.show'), admin_test_path(test) %>
+      <%= link_to t('links.edit'), edit_admin_test_path(test), class: 'form-inline-link', data: { test_id: test.id } %>
+      <%= link_to t('links.destroy'), admin_test_path(test), method: :delete, data: { confirm: t('messages.destroy') } %>
+    </div>
+  </div>
+</div>

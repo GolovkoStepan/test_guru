@@ -1,0 +1,25 @@
+<div class="p-4"></div>
+
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <h3><%= Test.human_attribute_name('title') %>: <%= @test.title %></h3>
+
+    <hr>
+
+    <p><%= Test.human_attribute_name('category') %>: <%= @test.category.title %></p>
+    <p><%= Test.human_attribute_name('level') %>: <span class="badge badge-primary"><%= @test.level %></span></p>
+
+    <%= link_to t('links.edit'), edit_admin_test_path(@test) %>
+    <%= link_to t('links.destroy'), admin_test_path(@test), method: :delete, data: { confirm: t('messages.destroy') } %>
+
+    <hr>
+
+    <p><%= link_to t('links.create_question'), new_admin_test_question_path(@test), class: 'btn btn-outline-primary' %></p>
+
+    <%= render @test.questions %>
+
+    <hr>
+
+    <p><%= link_to t('links.back'), admin_tests_path %></p>
+  </div>
+</div>

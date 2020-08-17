@@ -1,0 +1,24 @@
+<% if test.present? && test.errors.any? %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <% test.errors.full_messages.each do |msg| %>
+      <p class="m-0"><%= msg %></p>
+    <% end %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<%= form_with model: [:admin, test],
+              url: update_inline_admin_test_path(test),
+              local: true,
+              html: { style: 'display: none;' },
+              class: 'inline-form',
+              data: { test_id: test.id } do |f| %>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <%= f.submit t('links.save'), class: 'btn btn-outline-primary', id: 'btn-test-update' %>
+    </div>
+    <%= f.text_field :title, class: 'form-control', 'aria-describedby' => "btn-test-update" %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="feedbackModalLabel"><%= t('feedback.title') %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for :feedback, url: feedbacks_path, method: :post, local: true do |f| %>
+        <div class="modal-body">
+          <p><%= t('feedback.label') %></p>
+          <%= f.input :text, as: :text, class: 'form-control', label: false %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('feedback.cancel') %></button>
+          <%= f.button :submit, t('feedback.send'), class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -33,4 +33,6 @@ Rails.application.routes.draw do
       post :create_gist
     end
   end
+
+  resources :feedbacks, only: %i[create]
 end

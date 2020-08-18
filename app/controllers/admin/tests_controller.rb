@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class TestsController < Admin::ApplicationController
     before_action :set_tests, only: %i[index update_inline]

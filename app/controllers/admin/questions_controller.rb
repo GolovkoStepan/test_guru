@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class QuestionsController < Admin::ApplicationController
     before_action :find_question, only: %i[show edit update destroy]

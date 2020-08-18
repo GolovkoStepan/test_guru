@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :find_test, only: :start

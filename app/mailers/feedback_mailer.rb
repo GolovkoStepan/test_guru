@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FeedbackMailer < ApplicationMailer
-  DEFAULT_ADMIN_EMAIL = 'stepangolovkodev@gmail.com'.freeze
+  DEFAULT_ADMIN_EMAIL = 'stepangolovkodev@gmail.com'
 
   def send_user_feedback(email, user, msg)
     message = "Пользователь #{user_email(user)} отправил сообщение: #{msg}"

@@ -88,7 +88,7 @@ en:
     admin_panel: 'Administration panel'
     tests_index: 'Tests'
     gists_index: 'Gists'
-    create_gist: 'The question is not clear? Send us a message'
+    create_gist: 'Create a GitHub gist for a confusing question'
 
   activerecord:
     models:

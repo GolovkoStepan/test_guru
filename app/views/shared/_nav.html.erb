@@ -12,12 +12,6 @@
           <%= content_tag :span, t('.greetings', username: current_user.username ), class: 'navbar-text' %>
         </li>
 
-        <li class="nav-item ml-lg-4">
-          <%= link_to nil, class: 'nav-link', data: { toggle: 'modal', target: '#feedbackModal' } do %>
-            <i class="far fa-comment-alt"></i>
-          <% end %>
-        </li>
-
         <% if current_user.admin? %>
           <li class="nav-item">
             <%= link_to admin_tests_path, class: 'nav-link' do %>
@@ -48,6 +42,12 @@
           <% end %>
         </li>
       <% end %>
+
+      <li class="nav-item">
+        <%= link_to nil, class: 'nav-link', data: { toggle: 'modal', target: '#feedbackModal' } do %>
+          <i class="far fa-comment-alt"></i>
+        <% end %>
+      </li>
     </ul>
   </div>
 </nav>

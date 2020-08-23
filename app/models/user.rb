@@ -33,6 +33,8 @@ class User < ApplicationRecord
   has_many :my_tests, class_name: 'Test', foreign_key: 'user_id', dependent: :destroy
   has_many :gists, dependent: :destroy
 
+  has_and_belongs_to_many :badges
+
   validates_presence_of :first_name, :last_name
 
   enum role: %i[admin regular]

@@ -3,11 +3,11 @@
 <div class="row">
   <div class="col-lg-6 offset-lg-3">
 
-    <p><%= link_to "Создать новую награду", new_admin_badge_path, class: 'btn btn-outline-primary' %></p>
+    <p><%= link_to t('links.create_badge'), new_admin_badge_path, class: 'btn btn-outline-primary' %></p>
 
     <div class="p-2"></div>
 
-    <h3 class="mb-4 text-center">Награды для пользователей</h3>
+    <h3 class="mb-4 text-center"><%= t('.title') %></h3>
     <%= render @badges %>
   </div>
 </div>

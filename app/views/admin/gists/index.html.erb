@@ -1,3 +1,7 @@
 <div class="p-4"></div>
 
+<% if @gists.empty? %>
+  <h4>Пользователи еще не создали ни одного гиста!</h4>
+<% end %>
+
 <%= render @gists %>

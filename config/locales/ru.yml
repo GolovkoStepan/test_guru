@@ -49,6 +49,7 @@ ru:
         header: 'Создать новый тест'
       test:
         level: 'Уровень сложности'
+        passage_time: 'Время прохождения'
         questions_count:
           one: 'Тест имеет %{count} вопрос'
           few: 'Тест имеет %{count} вопроса'
@@ -109,6 +110,7 @@ ru:
         title: 'Название'
         level: 'Уровень'
         category: 'Категория'
+        passage_time: 'Время выполнения теста в секундах'
       user:
         first_name: 'Имя'
         last_name: 'Фамилия'

@@ -3,6 +3,9 @@
     <h5 class="card-title"><%= test.title %></h5>
     <p class="card-text"><%= t('admin.tests.test.questions_count', count: test.questions.count) %></p>
     <p class="card-text"><%= t('admin.tests.test.level') %> <span class="badge badge-primary"><%= test.level %></span></p>
+    <% if test.passage_time.present? %>
+      <p class="card-text"><%= t('admin.tests.test.passage_time') %> - <%= seconds_to_time(test.passage_time) %></p>
+    <% end %>
     <%= button_to t('links.start_test'), start_test_path(test), class: 'btn btn-outline-primary btn-block' %>
   </div>
 </div>

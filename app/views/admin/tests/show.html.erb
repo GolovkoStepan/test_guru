@@ -8,6 +8,9 @@
 
     <p><%= Test.human_attribute_name('category') %>: <%= @test.category.title %></p>
     <p><%= Test.human_attribute_name('level') %>: <span class="badge badge-primary"><%= @test.level %></span></p>
+    <% if @test.passage_time.present? %>
+      <p><%= Test.human_attribute_name('passage_time') %> - <%= seconds_to_time(@test.passage_time) %></p>
+    <% end %>
 
     <%= link_to t('links.edit'), edit_admin_test_path(@test) %>
     <%= link_to t('links.destroy'), admin_test_path(@test), method: :delete, data: { confirm: t('messages.destroy') } %>

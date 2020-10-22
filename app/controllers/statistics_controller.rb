@@ -3,9 +3,13 @@
 class StatisticsController < ApplicationController
   before_action :find_statistic
 
-  def show; end
+  def show
+    redirect_to result_statistic_path(@statistic) if @statistic.complete?
+  end
 
-  def result; end
+  def result
+    @statistic.complete! unless @statistic.seconds_remaining.positive?
+  end
 
   def update
     @statistic.accept!(params[:answer_ids])

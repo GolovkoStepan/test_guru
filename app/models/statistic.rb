@@ -61,6 +61,14 @@ class Statistic < ApplicationRecord
     current_question_number == 1 ? 0 : (100 / (test.questions.count / (current_question_number - 1).to_f)).round
   end
 
+  def seconds_remaining
+    ((created_at + test.passage_time.seconds) - Time.current).to_i
+  end
+
+  def complete!
+    update_column(:question_id, nil)
+  end
+
   private
 
   def answer_correct?(answer_ids)

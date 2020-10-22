@@ -62,7 +62,7 @@ class Statistic < ApplicationRecord
   end
 
   def seconds_remaining
-    ((created_at + test.passage_time.seconds) - Time.current).to_i
+    test.passage_time.present? ? ((created_at + test.passage_time.seconds) - Time.current).to_i : 0
   end
 
   def complete!

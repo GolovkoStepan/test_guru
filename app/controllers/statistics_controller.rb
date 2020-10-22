@@ -8,7 +8,7 @@ class StatisticsController < ApplicationController
   end
 
   def result
-    @statistic.complete! unless @statistic.seconds_remaining.positive?
+    @statistic.complete!
   end
 
   def update

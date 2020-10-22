@@ -11,7 +11,9 @@ class StatisticsController < ApplicationController
     @statistic.accept!(params[:answer_ids])
 
     if @statistic.complete?
-      Badge.give_out(current_user, @statistic.test) if @statistic.success?
+      @statistic.complete!
+      BadgesService.new(user: current_user, test: @statistic.test).give_out if @statistic.success?
+
       redirect_to result_statistic_path(@statistic)
     else
       render :show

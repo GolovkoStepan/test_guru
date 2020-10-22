@@ -8,7 +8,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :rule, collection: Badge::RULES.to_a, label_method: :second, value_method: :first%>
+    <%= f.input :rule, collection: badge_rules, label_method: :second, value_method: :first%>
   </div>
 
   <%= f.button :submit, t('links.save'), class: 'btn btn-primary btn-block' %>

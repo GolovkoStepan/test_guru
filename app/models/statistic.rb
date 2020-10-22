@@ -6,6 +6,7 @@
 #
 #  id              :bigint           not null, primary key
 #  correct_answers :integer          default(0)
+#  result_rate     :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  question_id     :bigint
@@ -50,6 +51,10 @@ class Statistic < ApplicationRecord
 
   def complete?
     persisted? && current_question.nil?
+  end
+
+  def complete!
+    update_column(:result_rate, success_rate) if complete?
   end
 
   def success_rate

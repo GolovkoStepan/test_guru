@@ -29,8 +29,6 @@ class BadgesService
   end
 
   def all_by_level?(level)
-    return false if @user.badges.include? @current_badge
-
     @user.statistics
          .joins(:test)
          .where('statistics.result_rate >= :rate', rate: SUCCESS_RATE)
@@ -40,8 +38,6 @@ class BadgesService
   end
 
   def all_by_category?(category_name)
-    return false if @user.badges.include? @current_badge
-
     category = Category.find_by(title: category_name)
     @user.statistics
          .joins(:test)

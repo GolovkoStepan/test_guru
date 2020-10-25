@@ -8,7 +8,7 @@ class StatisticsController < ApplicationController
   end
 
   def result
-    @statistic.complete!
+    redirect_to statistic_path(@statistic) unless @statistic.complete?
   end
 
   def update

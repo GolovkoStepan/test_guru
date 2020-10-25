@@ -23,7 +23,7 @@
 
     <p class="text"><%= @statistic.current_question.body %></p>
 
-    <%= form_with url: statistic_path(@statistic), local: true, method: :put do |f| %>
+    <%= form_with url: statistic_path(@statistic), local: true, method: :put, id: 'test-form' do |f| %>
       <%= f.collection_check_boxes :answer_ids, @statistic.current_question.answers, :id, :body, include_hidden: false do |cb| %>
         <div class="form-group form-check pl-lg-4">
           <%= cb.check_box id: "answer_ids_#{cb.object.id}", class: 'form-check-input' %>

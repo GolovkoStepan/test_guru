@@ -46,7 +46,7 @@ class Statistic < ApplicationRecord
   end
 
   def complete?
-    persisted? && current_question.nil?
+    (persisted? && current_question.nil?) || seconds_remaining <= 0
   end
 
   def success_rate
@@ -65,10 +65,6 @@ class Statistic < ApplicationRecord
     test.passage_time.present? ? ((created_at + test.passage_time.seconds) - Time.current).to_i : 0
   end
 
-  def complete!
-    update_column(:question_id, nil)
-  end
-
   private
 
   def answer_correct?(answer_ids)
@@ -81,7 +77,7 @@ class Statistic < ApplicationRecord
 
   def next_question
     if persisted?
-      test.questions.order(:id).where('id > ?', current_question.id).first
+      test.questions.order(:id).where('id > ?', current_question.id).first if seconds_remaining.positive?
     else
       test.questions.order(:id).first
     end

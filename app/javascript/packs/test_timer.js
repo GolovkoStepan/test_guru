@@ -1,9 +1,10 @@
 $(document).on('turbolinks:load', function() {
     let $timer = $('#timer')
+    let $form  = $('#test-form')
     let seconds = parseInt($timer.data('time'));
 
     if (seconds) {
-        if (seconds <= 0) { window.location.replace(window.location.href + '/result') }
+        if (seconds <= 0) { $form.submit() }
         $timer.text(convertTime(seconds, ':'))
         seconds -= 1
 
@@ -12,7 +13,7 @@ $(document).on('turbolinks:load', function() {
                 $timer.text(convertTime(seconds, ':'))
                 seconds -= 1
             } else {
-                window.location.replace(window.location.href + '/result')
+                $form.submit()
             }
         }, 1000)
     }

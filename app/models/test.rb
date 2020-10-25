@@ -4,13 +4,14 @@
 #
 # Table name: tests
 #
-#  id          :bigint           not null, primary key
-#  level       :integer          default(1)
-#  title       :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  category_id :bigint           not null
-#  user_id     :bigint           not null
+#  id           :bigint           not null, primary key
+#  level        :integer          default(1)
+#  passage_time :integer
+#  title        :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  category_id  :bigint           not null
+#  user_id      :bigint           not null
 #
 # Indexes
 #

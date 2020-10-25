@@ -12,7 +12,8 @@ class StatisticsController < ApplicationController
 
     if @statistic.complete?
       @statistic.complete!
-      BadgesService.new(user: current_user, test: @statistic.test).give_out if @statistic.success?
+      bs = BadgesService.new(user: current_user, test: @statistic.test)
+      bs.give_out { |badge| current_user.badges << badge } if @statistic.success?
 
       redirect_to result_statistic_path(@statistic)
     else

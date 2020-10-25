@@ -134,8 +134,9 @@ en:
         name: 'Name'
         image: 'Image link'
         rule: 'Issue rule'
+        rule_value: 'Value for rule'
 
   badge_rules:
     one_try: 'Issue a badge after successfully passing the test on the first attempt'
-    all_by_level_1: 'Issue a badge after successfully passing all level 1 tests'
-    all_by_cat_backend: 'Issue a badge after successfully passing all tests in the Backend category'
+    all_by_level_1: 'Issue a badge after successfully passing all test by level'
+    all_by_cat_backend: 'Issue a badge after successfully passing all tests by category'

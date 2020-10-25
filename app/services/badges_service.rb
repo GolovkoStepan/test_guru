@@ -2,7 +2,7 @@
 
 class BadgesService
   SUCCESS_RATE = 85
-  RULES = %w[one_try all_by_level_1 all_by_cat_backend].freeze
+  RULES = %w[one_try all_by_level all_by_category].freeze
 
   attr_reader :user, :test
 
@@ -16,11 +16,11 @@ class BadgesService
       next unless respond_to? rule_to_method_name(badge.rule)
 
       @current_badge = badge
-      @user.badges << badge if send rule_to_method_name(badge.rule)
+      yield(badge) if send(rule_to_method_name(badge.rule), badge.rule_value)
     end
   end
 
-  def one_try?
+  def one_try?(_)
     @user.statistics
          .joins(:test)
          .where('statistics.result_rate >= :rate', rate: SUCCESS_RATE)
@@ -28,21 +28,21 @@ class BadgesService
          .count == 1
   end
 
-  def all_by_level_1?
+  def all_by_level?(level)
     return false if @user.badges.include? @current_badge
 
     @user.statistics
          .joins(:test)
          .where('statistics.result_rate >= :rate', rate: SUCCESS_RATE)
-         .where('tests.level = :level', level: 1)
+         .where('tests.level = :level', level: level.to_i)
          .order('tests.id')
-         .pluck('tests.id') == Test.where(level: 1).order('tests.id').pluck(:id)
+         .pluck('tests.id') == Test.where(level: level.to_i).order('tests.id').pluck(:id)
   end
 
-  def all_by_cat_backend?
+  def all_by_category?(category_name)
     return false if @user.badges.include? @current_badge
 
-    category = Category.find_by(title: 'Backend')
+    category = Category.find_by(title: category_name)
     @user.statistics
          .joins(:test)
          .where('statistics.result_rate >= :rate', rate: SUCCESS_RATE)

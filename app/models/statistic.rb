@@ -37,9 +37,6 @@ class Statistic < ApplicationRecord
 
   before_validation :set_current_question
 
-  scope :by_user, ->(user) { where user: user }
-  scope :by_test, ->(test) { where test: test }
-
   def accept!(answer_ids)
     self.correct_answers += 1 if answer_correct?(answer_ids)
     save!

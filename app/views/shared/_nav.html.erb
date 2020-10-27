@@ -25,9 +25,16 @@
             <i class="fas fa-user-cog"></i>
           <% end %>
         </li>
+
         <li class="nav-item">
           <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
             <i class="fas fa-sign-out-alt"></i>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to badges_path, class: 'nav-link' do %>
+            <i class="fas fa-certificate"></i>
           <% end %>
         </li>
       <% else %>
@@ -36,6 +43,7 @@
             <i class="fas fa-sign-in-alt"></i>
           <% end %>
         </li>
+
         <li class="nav-item">
           <%= link_to new_user_registration_path, class: 'nav-link' do %>
             <i class="fas fa-user-plus"></i>

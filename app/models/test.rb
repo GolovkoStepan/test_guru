@@ -36,9 +36,10 @@ class Test < ApplicationRecord
   has_many :users, through: :statistics
 
   validates :title, presence: true
-  validates_numericality_of :level, only_integer: true, greater_than: 0
-  validates_numericality_of :passage_time, only_integer: true, greater_than: MIN_PASSAGE_TIME
   validates_uniqueness_of :title, scope: :level
+  validates_numericality_of :level, only_integer: true, greater_than: 0
+  validates_numericality_of :passage_time,
+                            only_integer: true, greater_than: MIN_PASSAGE_TIME, allow_nil: true
 
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }

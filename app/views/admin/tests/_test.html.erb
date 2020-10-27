@@ -5,6 +5,9 @@
       <%= render 'inline_form', test: @test == test ? @test : test %>
       <p class="card-text"><%= t('admin.tests.test.questions_count', count: test.questions.count) %></p>
       <p class="card-text"><%= t('admin.tests.test.level') %> - <%= test.level %></p>
+      <% if test.passage_time.present? %>
+        <p class="card-text"><%= t('admin.tests.test.passage_time') %> - <%= seconds_to_time(test.passage_time) %></p>
+      <% end %>
       <%= link_to t('links.show'), admin_test_path(test) %>
       <%= link_to t('links.edit'), edit_admin_test_path(test), class: 'form-inline-link', data: { test_id: test.id } %>
       <%= link_to t('links.destroy'), admin_test_path(test), method: :delete, data: { confirm: t('messages.destroy') } %>

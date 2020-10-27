@@ -49,6 +49,7 @@ en:
         header: 'Create new test'
       test:
         level: 'Level of difficulty'
+        passage_time: 'Passage time'
         questions_count:
           one: 'Test has %{count} question'
           few: 'Test has %{count} questions'
@@ -109,6 +110,7 @@ en:
         title: 'Title'
         level: 'Level'
         category: 'Category'
+        passage_time: 'Time to passage the test in seconds'
       user:
         first_name: 'Name'
         last_name: 'Surname'

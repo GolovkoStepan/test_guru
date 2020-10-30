@@ -55,6 +55,8 @@ class Test < ApplicationRecord
     where(level: level)
   }
 
+  paginates_per 4
+
   def last_question
     questions.order(:id).last
   end

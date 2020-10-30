@@ -20,4 +20,6 @@ class Badge < ApplicationRecord
   validates :rule, inclusion: { in: BadgesService::RULES }
   validates :rule_value, presence: true, if: -> { %w[all_by_level all_by_category].include? rule }
   validates_uniqueness_of :rule, scope: :rule_value
+
+  paginates_per 3
 end

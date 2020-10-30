@@ -4,7 +4,10 @@
   <div class="col-lg-6 offset-lg-3">
     <h3 class="mb-4 text-center"><%= t('.all_badges') %></h3>
     <%= render @all_badges %>
-    <h3 class="mb-4 text-center"><%= t('.user_badges') %></h3>
+    <%= paginate @all_badges, param_name: :all_badges_page, theme: 'twitter-bootstrap-4' %>
+
+    <h3 class="mb-4 mt-5 text-center"><%= t('.user_badges') %></h3>
     <%= render @user_badges %>
+    <%= paginate @user_badges, param_name: :user_badges_page, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>

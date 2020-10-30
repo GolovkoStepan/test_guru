@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item">
+        <li class="nav-item mr-lg-3">
           <%= content_tag :span, t('.greetings', username: current_user.username ), class: 'navbar-text' %>
         </li>
 

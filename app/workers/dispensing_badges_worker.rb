@@ -6,7 +6,7 @@ class DispensingBadgesWorker
   def perform(*args)
     logger.info 'DispensingBadgesWorker task started'
 
-    statistic = Statistic.find(args[0])
+    statistic = Statistic.find_by(id: args[0])
     return unless statistic
 
     logger.info 'Statistic load'

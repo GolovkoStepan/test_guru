@@ -11,7 +11,9 @@ class DispensingBadgesWorker
 
     logger.info 'Statistic load'
     logger.info "Dispensing badges for the user [#{statistic.user.email}] started"
-    BadgesService.new(statistic).give_the_user
+    BadgesService.new(statistic).issue_badges_to_user do |issue_badge|
+      DispensingBadgeNotifyWorker.perform_in(10.seconds, issue_badge.id)
+    end
 
     logger.info 'Dispensing badges for the user finished'
     logger.info 'DispensingBadgesWorker task finished'

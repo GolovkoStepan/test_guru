@@ -27,6 +27,8 @@
 #
 
 class Statistic < ApplicationRecord
+  SUCCESS_RATE = 85
+
   belongs_to :user
   belongs_to :test
 
@@ -47,7 +49,7 @@ class Statistic < ApplicationRecord
   end
 
   def success?
-    success_rate >= 85
+    success_rate >= SUCCESS_RATE
   end
 
   def complete?

@@ -27,12 +27,4 @@ class IssuedBadge < ApplicationRecord
   belongs_to :badge
   belongs_to :user
   belongs_to :statistic
-
-  after_create :notify_user
-
-  private
-
-  def notify_user
-    DispensingBadgeNotifyWorker.perform_in(10.seconds, id)
-  end
 end

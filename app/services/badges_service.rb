@@ -11,17 +11,22 @@ class BadgesService
 
   def badges_for_give_out
     Badge.all.map do |badge|
-      rule_method    = rule_to_method_name(badge.rule)
+      rule_method    = "#{badge.rule}?".to_sym
       @current_badge = badge
-      respond_to?(rule_method) && send(rule_method, badge.rule_value) ? badge : nil
+      send(rule_method, badge.rule_value) ? badge : nil
     end.compact
   end
 
-  def give_the_user
+  def issue_badges_to_user
     return unless @statistic.success_complete
 
-    badges_for_give_out.each { |badge| IssuedBadge.create!(badge: badge, user: @user, statistic: @statistic) }
+    badges_for_give_out.each do |badge|
+      issue_badge = IssuedBadge.create!(badge: badge, user: @user, statistic: @statistic)
+      yield(issue_badge) if block_given?
+    end
   end
+
+  private
 
   def one_try?(_)
     Statistic.where(user: @user, test: @test).count == 1
@@ -48,11 +53,5 @@ class BadgesService
     statistics      = statistics.where('statistics.created_at > :date', date: last_issue_date) if last_issue_date
 
     test_ids == statistics.order(:test_id).distinct.pluck(:test_id)
-  end
-
-  private
-
-  def rule_to_method_name(rule)
-    "#{rule}?".to_sym
   end
 end

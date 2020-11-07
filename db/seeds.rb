@@ -39,3 +39,15 @@ Answer.find_or_create_by!(body: 'Hibernate', correct: false, question: ratq1)
 ftq1 = Question.find_or_create_by!(body: 'What function does the <a> tag do?', test: front_test)
 Answer.find_or_create_by!(body: 'Creates a link', correct: true, question: ftq1)
 Answer.find_or_create_by!(body: 'Creates a paragraph', correct: false, question: ftq1)
+
+# create badges
+Badge.find_or_create_by!(name: "Вы прошли тест с первой попытки!",
+                         rule: "one_try")
+
+Badge.find_or_create_by!(name: "Вы прошли все тесты 2 уровня",
+                         rule: "all_by_level",
+                         rule_value: "2")
+
+Badge.find_or_create_by!(name: "Вы прошли все тесты категории Backend",
+                         rule: "all_by_category",
+                         rule_value: "Backend")

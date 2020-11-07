@@ -27,6 +27,11 @@ en:
       success: 'You have successfully passed the test!'
       fail: 'You failed to pass the test!'
 
+  badges:
+    index:
+      all_badges: 'All badges'
+      user_badges: 'User badges'
+
   admin:
     answers:
       edit:
@@ -55,6 +60,13 @@ en:
           few: 'Test has %{count} questions'
           many: 'Test has %{count} questions'
           other: 'Test has %{count} questions'
+    badges:
+      index:
+        title: 'Badges for users'
+      edit:
+        title: 'Change badge'
+      new:
+        title: 'New badge'
 
   messages:
     destroy: 'Are you sure?'
@@ -66,6 +78,7 @@ en:
     gist_remove_fail: 'Error while removing gist'
     feedback_sent: 'Your message has been successfully sent'
     feedback_sent_fail: 'Failed to send message'
+    no_gists_created: 'No gists has been created yet'
 
   links:
     show: 'Show'
@@ -90,6 +103,8 @@ en:
     tests_index: 'Tests'
     gists_index: 'Gists'
     create_gist: 'Create a GitHub gist for a confusing question'
+    create_badge: 'Create a new badge'
+    badges_index: 'Badges'
 
   activerecord:
     models:
@@ -97,6 +112,7 @@ en:
       question: 'Question'
       test: 'Test'
       user: 'User'
+      badge: 'Badge'
     attributes:
       answer:
         id: 'ID'
@@ -116,3 +132,30 @@ en:
         last_name: 'Surname'
         middle_name: 'Patronymic'
         email: 'Email'
+      badge:
+        name: 'Name'
+        image: 'Image link'
+        rule: 'Issue rule'
+        rule_value: 'Value for rule'
+
+  badge_rules:
+    one_try: 'Issue a badge after successfully passing the test on the first attempt'
+    all_by_level_1: 'Issue a badge after successfully passing all test by level'
+    all_by_cat_backend: 'Issue a badge after successfully passing all tests by category'
+
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"

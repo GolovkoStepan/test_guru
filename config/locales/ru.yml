@@ -27,6 +27,11 @@ ru:
       success: 'Вы успешно прошли тест!'
       fail: 'Вы не смогли пройти тест!'
 
+  badges:
+    index:
+      all_badges: 'Все награды'
+      user_badges: 'Ваши награды'
+
   admin:
     answers:
       edit:
@@ -55,6 +60,13 @@ ru:
           few: 'Тест имеет %{count} вопроса'
           many: 'Тест имеет %{count} вопросов'
           other: 'Тест имеет %{count} вопросов'
+    badges:
+      index:
+        title: 'Награды для пользователей'
+      edit:
+        title: 'Изменить награду'
+      new:
+        title: 'Новая награда'
 
   messages:
     destroy: 'Вы уверены?'
@@ -66,6 +78,7 @@ ru:
     gist_remove_fail: 'При удалении gist произошла ошибка'
     feedback_sent: 'Ваше сообщение успешно отправлено'
     feedback_sent_fail: 'Сообщение отправить не удалось'
+    no_gists_created: 'Пользователи еще не создали ни одного гиста!'
 
   links:
     show: 'Открыть'
@@ -90,6 +103,8 @@ ru:
     tests_index: 'Тесты'
     gists_index: 'Gists'
     create_gist: 'Создать GitHub gist для непонятного вопроса'
+    create_badge: 'Создать новую награду'
+    badges_index: 'Награды'
 
   activerecord:
     models:
@@ -97,6 +112,7 @@ ru:
       question: 'Вопрос'
       test: 'Тест'
       user: 'Пользователь'
+      badge: 'Награда'
     attributes:
       answer:
         id: 'ID'
@@ -116,3 +132,30 @@ ru:
         last_name: 'Фамилия'
         middle_name: 'Отчество'
         email: 'Электронная почта'
+      badge:
+        name: 'Название'
+        image: 'Ссылка на картинку'
+        rule: 'Правило выдачи'
+        rule_value: 'Значение для правила выдачи'
+
+  badge_rules:
+    one_try: 'Выдать бэйдж после успешного прохождения теста с первой попытки'
+    all_by_level: 'Выдать бэйдж после успешного прохождения всех тестов определенного уровня'
+    all_by_category: 'Выдать бэйдж после успешного прохождения всех тестов категории'
+
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Предыдущая"
+      next: "Следующая &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "%{entry_name} не найдено"
+          one: "Показана <b>1</b> %{entry_name}"
+          other: "Показаны <b>все %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Показаны %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> из <b>%{total}</b> всех записей"

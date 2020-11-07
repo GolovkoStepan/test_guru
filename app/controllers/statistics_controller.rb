@@ -15,6 +15,7 @@ class StatisticsController < ApplicationController
     @statistic.accept!(params[:answer_ids])
 
     if @statistic.complete?
+      DispensingBadgesWorker.perform_async(@statistic.id)
       redirect_to result_statistic_path(@statistic)
     else
       render :show

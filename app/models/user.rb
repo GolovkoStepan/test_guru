@@ -32,6 +32,8 @@ class User < ApplicationRecord
   has_many :tests, through: :statistics
   has_many :my_tests, class_name: 'Test', foreign_key: 'user_id', dependent: :destroy
   has_many :gists, dependent: :destroy
+  has_many :issued_badges
+  has_many :badges, through: :issued_badges, dependent: :destroy
 
   validates_presence_of :first_name, :last_name
 

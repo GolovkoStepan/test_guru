@@ -1,0 +1,16 @@
+<div class="card mb-4" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <% if badge.image.present? %>
+        <%= image_tag(badge.image, class: 'card-img', alt: 'No Image') %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><%= badge.name %></p>
+        <%= link_to t('links.edit'), edit_admin_badge_path(badge) %>
+        <%= link_to t('links.destroy'), admin_badge_path(badge), method: :delete, data: { confirm: t('messages.destroy') } %>
+      </div>
+    </div>
+  </div>
+</div>

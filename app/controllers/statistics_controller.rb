@@ -3,14 +3,19 @@
 class StatisticsController < ApplicationController
   before_action :find_statistic
 
-  def show; end
+  def show
+    redirect_to result_statistic_path(@statistic) if @statistic.complete?
+  end
 
-  def result; end
+  def result
+    redirect_to statistic_path(@statistic) unless @statistic.complete?
+  end
 
   def update
     @statistic.accept!(params[:answer_ids])
 
     if @statistic.complete?
+      DispensingBadgesWorker.perform_async(@statistic.id)
       redirect_to result_statistic_path(@statistic)
     else
       render :show

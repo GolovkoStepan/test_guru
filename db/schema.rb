@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_181502) do
+ActiveRecord::Schema.define(version: 2020_10_27_163129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2020_07_21_181502) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "rule", null: false
+    t.string "rule_value"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -41,6 +50,17 @@ ActiveRecord::Schema.define(version: 2020_07_21_181502) do
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
+  create_table "issued_badges", force: :cascade do |t|
+    t.bigint "badge_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "statistic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_issued_badges_on_badge_id"
+    t.index ["statistic_id"], name: "index_issued_badges_on_statistic_id"
+    t.index ["user_id"], name: "index_issued_badges_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
     t.bigint "test_id", null: false
@@ -56,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_181502) do
     t.integer "correct_answers", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "success_complete", default: false
     t.index ["question_id"], name: "index_statistics_on_question_id"
     t.index ["test_id"], name: "index_statistics_on_test_id"
     t.index ["user_id"], name: "index_statistics_on_user_id"
@@ -68,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_181502) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "passage_time"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
@@ -97,6 +119,9 @@ ActiveRecord::Schema.define(version: 2020_07_21_181502) do
   add_foreign_key "answers", "questions"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
+  add_foreign_key "issued_badges", "badges"
+  add_foreign_key "issued_badges", "statistics"
+  add_foreign_key "issued_badges", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "statistics", "questions"
   add_foreign_key "statistics", "tests"

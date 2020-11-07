@@ -58,7 +58,7 @@ module Admin
     end
 
     def test_params
-      params.require(:test).permit(:title, :category_id, :level)
+      params.require(:test).permit(:title, :category_id, :level, :passage_time)
     end
   end
 end

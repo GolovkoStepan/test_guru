@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 @import "~bootstrap/scss/bootstrap";
 @import '~@fortawesome/fontawesome-free';
 
-@import "footer";
+@import "main";
+@import "notification";
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}

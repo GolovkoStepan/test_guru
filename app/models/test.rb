@@ -4,13 +4,14 @@
 #
 # Table name: tests
 #
-#  id          :bigint           not null, primary key
-#  level       :integer          default(1)
-#  title       :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  category_id :bigint           not null
-#  user_id     :bigint           not null
+#  id           :bigint           not null, primary key
+#  level        :integer          default(1)
+#  passage_time :integer
+#  title        :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  category_id  :bigint           not null
+#  user_id      :bigint           not null
 #
 # Indexes
 #
@@ -25,6 +26,8 @@
 #
 
 class Test < ApplicationRecord
+  MIN_PASSAGE_TIME = 30
+
   belongs_to :category
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
@@ -33,8 +36,10 @@ class Test < ApplicationRecord
   has_many :users, through: :statistics
 
   validates :title, presence: true
-  validates_numericality_of :level, only_integer: true, greater_than: 0
   validates_uniqueness_of :title, scope: :level
+  validates_numericality_of :level, only_integer: true, greater_than: 0
+  validates_numericality_of :passage_time,
+                            only_integer: true, greater_than: MIN_PASSAGE_TIME, allow_nil: true
 
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
@@ -49,6 +54,8 @@ class Test < ApplicationRecord
   scope :by_level, lambda { |level|
     where(level: level)
   }
+
+  paginates_per 4
 
   def last_question
     questions.order(:id).last

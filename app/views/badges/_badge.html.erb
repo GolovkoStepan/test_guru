@@ -1,0 +1,14 @@
+<div class="card mb-4" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <% if badge.image %>
+        <%= image_tag(badge.image, class: 'card-img') %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><%= badge.name %></p>
+      </div>
+    </div>
+  </div>
+</div>
